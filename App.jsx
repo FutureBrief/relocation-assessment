@@ -6,6 +6,7 @@ const RelocationAssessment = () => {
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [demographics, setDemographics] = useState({ age: '', gender: '' });
 
   // Gateway question
   const gatewayQuestion = {
@@ -200,6 +201,7 @@ const RelocationAssessment = () => {
     setCurrentQuestion(0);
     setAnswers({});
     setShowResults(false);
+    setDemographics({ age: '', gender: '' });
     // Re-shuffle questions
     const shuffled = assessmentQuestions.map(q => ({
       ...q,
@@ -346,6 +348,61 @@ const RelocationAssessment = () => {
               The questions identify characteristics that differentiated those seriously planning to relocate from those 
               who were not. Your results reflect tendencies associated with relocation readiness, not a prediction of success.
             </p>
+          </div>
+
+          {/* Demographics Collection - Optional */}
+          <div className="mb-8 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-200">
+            <h3 className="text-lg font-bold text-gray-800 mb-2">Help Us Understand Our Users (Optional)</h3>
+            <p className="text-gray-600 text-sm mb-4">
+              This information helps us provide better insights and compare results across different groups. 
+              All responses are completely optional and anonymous.
+            </p>
+            
+            <div className="space-y-4">
+              {/* Age Group */}
+              <div>
+                <label className="block font-semibold text-gray-700 mb-2">Age Group:</label>
+                <select
+                  value={demographics.age}
+                  onChange={(e) => setDemographics({...demographics, age: e.target.value})}
+                  className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+                >
+                  <option value="">Select age group (optional)</option>
+                  <option value="under-25">Under 25</option>
+                  <option value="25-34">25-34</option>
+                  <option value="35-44">35-44</option>
+                  <option value="45-54">45-54</option>
+                  <option value="55-64">55-64</option>
+                  <option value="65-74">65-74</option>
+                  <option value="75+">75+</option>
+                  <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+              </div>
+
+              {/* Gender */}
+              <div>
+                <label className="block font-semibold text-gray-700 mb-2">Gender:</label>
+                <select
+                  value={demographics.gender}
+                  onChange={(e) => setDemographics({...demographics, gender: e.target.value})}
+                  className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+                >
+                  <option value="">Select gender (optional)</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                  <option value="prefer-not-to-say">Prefer not to say</option>
+                </select>
+              </div>
+
+              {demographics.age && demographics.gender && demographics.age !== '' && demographics.gender !== '' && (
+                <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-800 text-sm">
+                    ✓ Thank you for sharing! This helps us provide better insights for future users.
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Video Section - Add your video URL here */}

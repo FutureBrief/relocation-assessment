@@ -30,8 +30,7 @@ const RelocationAssessment = () => {
       text: 'If you had to choose between these two job opportunities, which would you choose?',
       options: [
         { text: 'A job where your responsibilities, the work environment, and the people you would work with were regularly changing', score: 3 },
-        { text: 'A job where your responsibilities, the work environment, and the people you would work with were stable and unlikely to change', score: 1 },
-        { text: 'Not sure', score: 0 }
+        { text: 'A job where your responsibilities, the work environment, and the people you would work with were stable and unlikely to change', score: 1 }
       ],
       category: 'comfort_with_change'
     },
@@ -41,8 +40,7 @@ const RelocationAssessment = () => {
       options: [
         { text: 'I wouldn\'t visit an exotic nation, I prefer to travel near my home, if at all', score: 0 },
         { text: 'I would stick to the areas that the guidebooks said were best for tourists', score: 1 },
-        { text: 'I would set out on my own to visit any area that looked interesting', score: 3 },
-        { text: 'Not sure', score: 0 }
+        { text: 'I would set out on my own to visit any area that looked interesting', score: 3 }
       ],
       category: 'adaptability'
     },
@@ -52,8 +50,7 @@ const RelocationAssessment = () => {
       options: [
         { text: 'I prefer detailed itineraries with reservations made well in advance', score: 1 },
         { text: 'I like having a general plan but leaving room for spontaneity', score: 2 },
-        { text: 'I prefer minimal planning and figuring things out as I go', score: 3 },
-        { text: 'Not sure', score: 0 }
+        { text: 'I prefer minimal planning and figuring things out as I go', score: 3 }
       ],
       category: 'comfort_with_change'
     },
@@ -85,8 +82,7 @@ const RelocationAssessment = () => {
       options: [
         { text: 'I thrive on routine and find comfort in predictability', score: 1 },
         { text: 'I appreciate some routine but enjoy occasional changes', score: 2 },
-        { text: 'I get bored easily and actively seek new experiences', score: 3 },
-        { text: 'Not sure', score: 0 }
+        { text: 'I get bored easily and actively seek new experiences', score: 3 }
       ],
       category: 'comfort_with_change'
     },
@@ -352,6 +348,31 @@ const RelocationAssessment = () => {
             </p>
           </div>
 
+          {/* Video Section - Add your video URL here */}
+          <div className="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+            <h3 className="text-lg font-bold text-gray-800 mb-3">📹 A Personal Message About Your Results</h3>
+            <p className="text-gray-700 mb-4">
+              Scores don't tell the whole story. Some people with serious doubts find relocation surprisingly pleasant, 
+              while others expecting it to be simple discover they need more adaptation than anticipated. 
+              Watch this brief message about interpreting your results:
+            </p>
+            {/* Replace YOUR_VIDEO_URL_HERE with your actual video URL */}
+            <div className="aspect-video w-full bg-gray-200 rounded flex items-center justify-center">
+              <p className="text-gray-500 text-sm">Video coming soon - Check back later!</p>
+              {/* Uncomment and add your video URL when ready:
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="YOUR_VIDEO_URL_HERE" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="rounded"
+              ></iframe>
+              */}
+            </div>
+          </div>
+
           <button
             onClick={handleReset}
             className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors"
@@ -377,7 +398,7 @@ const RelocationAssessment = () => {
             Relocation Readiness Assessment
           </h1>
           <p className="text-gray-600 mb-4">
-            Answer each question honestly. The order of answers is randomized, so read each option carefully.
+            Answer each question honestly. <strong className="text-gray-800">The order of answers is randomized, so read each option carefully.</strong>
           </p>
           
           {/* Progress Bar */}
